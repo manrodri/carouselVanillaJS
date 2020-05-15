@@ -1,16 +1,56 @@
-
 <html lang="es">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Vanilla JS Carousel</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-              integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-    
-    
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vanilla JS Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="carousel">
+        <button class="carousel__button carousel__button--left">
+            <p class="btn btn-left">go left</p>
+        </button>
+        <div class="carousel__track-container">
+            <ul class="carousel__track">
+                <li class="carousel__slide current-slide">
+                    <img src="img/Catalogo-LAMINA-HT-web_2.png" alt="" class="carousel__img" />
+                </li>
+                <li class="carousel__slide">
+                    <img src="img/Catalogo-LAMINA-HT-web_3.png" alt="" class="carousel__img" />
+                </li>
+                <li class="carousel__slide">
+                    <img src="img/Catalogo-LAMINA-HT-web_4.png" alt="" class="carousel__img" />
+                </li>
+                <li class="carousel__slide">
+                    <img src="img/Catalogo-LAMINA-HT-web_5.png" alt="" class="carousel__img" />
+                </li>
+                <li class="carousel__slide">
+                    <img src="img/Catalogo-LAMINA-HT-web_6.png" alt="" class="carousel__img" />
+                </li>
+                <li class="carousel__slide">
+                    <img src="img/Catalogo-LAMINA-HT-web_7.png" alt="" class="carousel__img" />
+                </li>
+            </ul>
+        </div>
+        <button class="carousel__button carousel__button--right">
+            <p class="btn btn-right">go right</p>
+        </button>
+        <div class="carousel__nav">
+            <button class="carousel__indicator current-slide"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
-    </body>
-    </html>
+</body>
+
+</html>
