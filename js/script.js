@@ -25,14 +25,29 @@ const updateDots = (currentDot, targetDot) => {
   targetDot.classList.add('current-slide');
 };
 
+const hideShowBtn = (slides, previousBtn, nextBtn, targetIndex) => {
+  if (!targetIndex) {
+    previousBtn.classList.add('is-hidden');
+    nextBtn.classList.remove('is-hidden');
+  } else if (targetIndex === slides.length - 1) {
+    previousBtn.classList.remove('is-hidden');
+    nextBtn.classList.add('is-hidden');
+  } else {
+    previousBtn.classList.remove('is-hidden');
+    nextBtn.classList.remove('is-hidden');
+  }
+};
+
 slides.forEach(setSlidePosition);
 
 // when I click left -> move slide to the left
-previousBtn.addEventListener('click', () => {
+previousBtn.addEventListener('click', function () {
   const currentSlide = track.querySelector('.current-slide');
   const prevSlide = currentSlide.previousElementSibling;
   const currentDot = dotsNavs.querySelector('.current-slide');
   const previousDot = currentDot.previousElementSibling;
+  const prevSlideIndex = slides.findIndex((slide) => slide === prevSlide);
+  hideShowBtn(slides, previousBtn, nextBtn, prevSlideIndex);
 
   moveToSlide(track, currentSlide, prevSlide);
   updateDots(currentDot, previousDot);
@@ -45,6 +60,8 @@ nextBtn.addEventListener('click', (e) => {
   const nextSlide = currentSlide.nextElementSibling;
   const currentDot = dotsNavs.querySelector('.current-slide');
   const nextDot = currentDot.nextElementSibling;
+  const nextSlideIndex = slides.findIndex((slide) => slide === nextSlide);
+  hideShowBtn(slides, previousBtn, nextBtn, nextSlideIndex);
 
   // move the slide
   moveToSlide(track, currentSlide, nextSlide);
@@ -53,8 +70,10 @@ nextBtn.addEventListener('click', (e) => {
 
 // when I click the nav indicators, move to that slide
 dotsNavs.addEventListener('click', (e) => {
-  // what indicatior was clicked
   const targetDot = e.target.closest('button');
+  if (!targetDot) return;
+
+  // what indicatior was clicked
   const currentSlide = track.querySelector('.current-slide');
   const currentDot = dotsNavs.querySelector('.current-slide');
   const targetIndex = dots.findIndex((dot) => dot === targetDot);
@@ -62,7 +81,6 @@ dotsNavs.addEventListener('click', (e) => {
 
   moveToSlide(track, currentSlide, targetSlide);
   updateDots(currentDot, targetDot);
-
   console.log(targetIndex);
-  if (!targetDot) return;
+  hideShowBtn(slides, previousBtn, nextBtn, targetIndex);
 });
