@@ -43,7 +43,7 @@ body {
 
 .carousel__button {
     position: absolute;
-    top: 50px;
+    top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: 0;
@@ -73,16 +73,31 @@ body {
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    background: rgba(0,0,0,.3);
+    background: #005E70;
+    opacity: .7;
     margin: 0 10px;
     cursor: pointer;
 }
 
 .carousel__indicator.current-slide {
-    background-color: rgba(0,0,0,.7);
+    background-color: #5DAEB8;
+    opacity: .3;
 }
 
 .is-hidden {
     display: none;
+}
+
+.btn {
+    padding: .5em 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    font-weight: bolder;
+}
+
+.btn-primary {
+    background-color:#5DAEB8;
+    color: #FFF;
 }
 
